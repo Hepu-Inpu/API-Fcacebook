@@ -1,0 +1,86 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FACEBOOK</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+
+    <body>
+        <div id="contenido" class="h-screen items-center">
+            <!--favoritos-->
+            <div class="favorites">
+                <!-- AllFavorites es un array -->
+                <transition-group name="list">
+                    <div class="favorite" v-for="alias in Todos" :key="alias.id">
+                        <!--@ remplaza en v-on para enevntos-->
+                        <!--llamamos el metodo y le enviamos como parametro todos() que es el array pero enviamos es el alias-->
+                        <a @click.prevent="Showfa(alias)" href="">
+                            <img v-bind:src="alias.picture.data.url" alt="" class="favorite__avatar" />
+                        </a>
+                    </div>
+                </transition-group>
+            </div>
+            <h1 id="h1" class="text-center text-3xl">Busca Perfiles en Facebook</h1>
+            <br />
+            <form id="Buscador" v-on:submit.prevent="consulta">
+                <input v-model="ID" type="text" class="mr-1 focus:outline-none px-2" id="buscador_input" required
+                    placeholder="Inserte ID" />
+                <button type="submit" id="buscador_input2"
+                    class="bg-white hover:bg-gray-500 hover:text-black py-2 px-4 border border-gray-400 rounded shadow">
+                    Buscar
+                </button>
+            </form>
+            <section class="flex h-screen justify-center items-center">
+                <transition>
+                    <div v-if="resultado" class="p-4 sm:w-1/2 lg:w-1/3">
+                        <div id="cont" class="p-6 hover:bg-gray-800 hover:text-white transition duration-300 ease-in">
+                            <div>
+                                <h2 id="h2">{{ resultado.name }}</h2>
+                            </div>
+                            <br />
+
+                            <img class="rounded-full border border-gray-100 shadow-sm"
+                                v-bind:src="resultado.picture.data.url" alt="user image" />
+                            <div
+                                class="absolute top-0 right-0 h-6 w-6 my-1 border-4 border-white rounded-full bg-green-400 z-2">
+                            </div>
+                            <br />
+                            <br />
+                            <a id="if" v-if="Valida" @click.prevent="DeleteLike" style="text-decoration: none"
+                                href="">Eliminar Favoritou
+                                <img src="estrellita.png" alt="" width="30" height="30" /></a>
+                            <a id="if" v-else v-on:click.prevent="AddLike" href="">
+                                Añadir Favoritou
+                                <img src="vacio.png" alt="" width="30" height="30" /></a>
+
+                            <br />
+                            <br />
+                        </div>
+                        
+                    </div>
+                    <p id="h1" v-else>Esperando por la busqueda lok@ &nbsp</p>
+                </transition>
+
+                <br />
+                <div v-if="error" id="cont" class="mr-1 p-6 hover:bg-gray-800 transition duration-300 ease-in">
+                    <div id="cont"
+                        class="h-full border-2 border-gray-200 hover:text-white border-opacity-60 rounded-lg overflow-hidden">
+                        JOAAAA!! severo tonto compai escriba bien
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script src="js/main.js"></script>
+        <script>
+            //creamos una constante para guardar el acoplamiento
+      const velake = app.mount("#contenido");
+        </script>
+    </body>
+
+    </html>
