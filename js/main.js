@@ -1,7 +1,7 @@
 const API = "https://graph.facebook.com/";
 const CAMPOS = "?fields=id,name,email,picture&";
 const TOKEN =
-    "access_token=EAAJ9Uzgi7GABACCiEJkucVMEuCaPsKTweAl42LZBYWCW0txqkFVdrmLXdQTmMwuHmeGXZCqGUxcSRhAapqnT6DTUMfTN9ref9iqvrAbgMO3MBeIWUZB0rzl3AAedQHF56xYpy45spHLFGM089jxGcD3LDtdG8zYQybhLh60cki3N9uYDEB0";
+    "access_token=EAAJ9Uzgi7GABADZBrQZBZAf529oXy3sOJEthJ5FW2IhsMVKfbfhwfWLhg7oTP96uy5tosmsWJSsuo4OWVQkxiCFmCefRM5eYLj8ExjdsPLGnJODqEZABZBQtrzCemThsTq4Qys5dvk0vilai7RTcMavOHM44wh259KF1PLZAcbKp772FwsQ38gQgcra7c9nx80ZC2UHPhh5LXLAr8EWWjfEAxsqPllL3KUq22aSOfYx4RDmYd2VjIlhdDa8UyP2mvwZD";
 // angie 100006374922337
 // miguel 100024871119252
 
@@ -92,7 +92,7 @@ const app = Vue.createApp({
             window.localStorage.setItem('fav', JSON.stringify(this.Todos))
         },
         Showfa(id){
-        this.result = id
+        this.resultado = id
         }
     }
 });
